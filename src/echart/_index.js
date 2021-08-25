@@ -18,11 +18,11 @@ class ES extends React.Component {
          var option;
         myChart.setOption(
             option = {
-                yAxis: {
+                xAxis: {
                     type: 'category',
                     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                 },
-                xAxis: {
+                yAxis: {
                     type: 'value'
                 },
                 series: [
@@ -81,9 +81,9 @@ class ES extends React.Component {
                             y:0
                         },
                         data:[
-                            [ 0,50,100,'Mon'], // 这是第一个 dataItem
-                            [ 1,100,150,'Thu'], // 这是第二个 dataItem
-                            [ 2,150,300,'Sun'], // 这是第三个 dataItem
+                            [ 50,'Mon','Tue','Mon'], // 这是第一个 dataItem
+                            [ 100,'Tue','Wed','Thu'], // 这是第二个 dataItem
+                            [ 200,'Fri','Sun','Sun'], // 这是第三个 dataItem
                         ],
                         label:{
                             normal:{

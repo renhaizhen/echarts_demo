@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import ES from './echart';
+// import ES from './echart/_index';
+import ECHART from './echart/index';
 function App() {
   return (
     <div className="App">
-      <ES/>
+      {/* <ES/> */}
+      <ECHART/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
