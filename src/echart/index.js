@@ -2,13 +2,14 @@
 import * as echarts from 'echarts';
 import React from 'react';
 import { mock } from '../mock_ec';
-
+import { styles } from './style';
 var myChart;
 class Echarts extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            open:false
+            open:false,
+            aimSlide:null
         };
       }
     splitData(rawData) {
@@ -225,7 +226,7 @@ class Echarts extends React.Component {
                                 x: startPoint[0],
                                 y: startPoint[1] - height / 2,
                                 width: endPoint[0] - startPoint[0],
-                                height: height * 100
+                                height: height * 200
                             }, {
                                 // 当前坐标系的包围盒。
                                 x: params.coordSys.x,
@@ -337,10 +338,12 @@ class Echarts extends React.Component {
 
             },true
         )
-        myChart.on('click', function(params) {
-            
+        myChart.on('click',(params)=> {
+            myChart.open = false;
             console.log(params,'点击图表！！',params.name);
-            alert(`当前点击的是:${params.name}`)
+            this.setState({open:true,aimSlide:params})
+            console.log(this)
+            // alert(`当前点击的是:${params.name}`)
         })
         myChart.getZr().on('click',params=>{
             console.log(params,'getZr点击图表！！',params.offsetX,params.offsetY);
@@ -357,16 +360,31 @@ class Echarts extends React.Component {
         //         }
         //     ]
         // });
+
         
 	}
-
+    upDateStatu(){
+        this.setState({open:false})
+        console.log(this.state)
+    }
 	render() {
+        const { open,aimSlide} = this.state;
+        const isShow = open
+        console.log(open,'.....')
 		return (
-            <div>
-				 <div id='mian' style={{width:1000,height:900,position:'relative'}}></div>
-                 <div id='tips' style={{display:'none'}}>
-                <div>{'关闭'}{this.state.open}</div>
-            </div>
+            <div style={{width:'100%',height:'100%'}}>
+				 <div id='mian' style={{width:1000,height:900}}>
+                 </div>
+                 <div style={ isShow?styles.openBox:styles.closeBox} onClick={this.upDateStatu.bind(this)}>
+                     {'关闭'}
+                     <div style={styles.closeInner}>
+                        <div>{aimSlide===null?'':`任务始于:${aimSlide.name}`}</div>
+                        <div>订单总量:10000</div>
+                        <div>剩余订单:5000</div>
+                        <div>成交率:50%</div>
+                        <div>成交均价:53215</div>
+                     </div>
+                     </div>
             </div>
 
 		)
