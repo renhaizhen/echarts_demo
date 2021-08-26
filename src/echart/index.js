@@ -370,7 +370,7 @@ class Echarts extends React.Component {
 	render() {
         const { open,aimSlide} = this.state;
         const isShow = open
-        console.log(open,'.....')
+        console.log(open,'........')
         if(!mock||!mock.length) return null
 		return (
             <div style={{width:'100%',height:'100%'}}>
