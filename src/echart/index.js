@@ -382,7 +382,7 @@ class Echarts extends React.Component {
                         <div>{aimSlide===null?'':`任务始于:${aimSlide.name}`}</div>
                         <div>订单总量:100000</div>
                         <div>剩余订单:5000</div>
-                        <div>成交率:50%</div>
+                        <div>成交率:60%</div>
                         <div>成交均价:53215</div>
                      </div>
                      </div>
