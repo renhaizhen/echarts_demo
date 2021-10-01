@@ -14,7 +14,7 @@ const styles = {
         height:'200px',
         backgroundColor:'#eee',
         textAlign:'center',
-        zIndex:100000
+        zIndex:1000000
     },
     closeInner:{
         display:'flex',
