@@ -100,11 +100,11 @@ class ES extends React.Component {
             },true
         )
             myChart.on('click', function(params) { 
-            console.log(params,'点击 图表！！',params.name);
+            console.log(params,'点击 图表了！！',params.name);
             alert(`当前点击 的是:${params.name}`)
         })
         myChart.getZr().on('click',params=>{
-            console.log(params,'getZr点击图表！！',params.offsetX,params.offsetY);
+            console.log(params,'getZr点击图表了！！',params.offsetX,params.offsetY);
             
         })
         
